@@ -1,0 +1,41 @@
+﻿@using System.Net
+@using System.IO
+@using Microsoft.Extensions.Logging
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
+@page "/Browse"
+
+<div>
+    687687
+</div>
+
+@code {
+    List<Article> articles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // fetch json from api
+        var url = "https://localhost:44392/article/recent";
+        using var client = new HttpClient();
+        var response = await client.GetAsync(url);
+        string temp = await response.Content.ReadAsStringAsync();
+        temp = temp.Replace("$", "");
+        dynamic content = JObject.Parse(temp);
+        Console.WriteLine(content.values);
+
+    }
+
+    public class Article
+    {
+        public int Id { get; set; }
+        public DateTime CreationDate { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+        public string Thumbail { get; set; }
+        public int Upvotes { get; set; }
+        public int Downvotes { get; set; }
+        public int ViewCount { get; set; }
+        public int UserId { get; set; }
+    }
+}

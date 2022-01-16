@@ -68,6 +68,10 @@
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "WebApiContrib.Formatting.JavaScriptSerializer": {
+              "target": "Package",
+              "version": "[0.9.4, )"
             }
           },
           "imports": [

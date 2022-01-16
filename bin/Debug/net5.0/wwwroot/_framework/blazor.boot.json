@@ -10,6 +10,7 @@
       "Blazor.Extensions.Logging.dll": "sha256-EtRNQEJJOXiHCzSsaER5PPSqCmdrD2OxFA8rPxF1wSk=",
       "Blazored.SessionStorage.dll": "sha256-XkZNIC6OGMeHZDbBGnhfc9yXdLIvGa8LlKDd4ZPWkS8=",
       "Json.Net.dll": "sha256-L4TPnTYif0CoIQ511dhcGh\/KSnZxrPGiPA32PwOF\/Yg=",
+      "System.Net.Http.Formatting.dll": "sha256-VfDygm51VoRbKAhn7I\/UwSnCBQY49HXcDbU++VSVAN8=",
       "Microsoft.AspNetCore.dll": "sha256-HjR77lRKkTxolna+W0f2gS6+x8xF\/7JpHwxlO\/CPrKw=",
       "Microsoft.AspNetCore.Authentication.Abstractions.dll": "sha256-iw51tdKcETC5QqlJLWett1iPlLZgUrRdZfkV7EoaD4k=",
       "Microsoft.AspNetCore.Authentication.Core.dll": "sha256-NP2svkDxlIVJsMiWAmj552NCYo4j7YnOUr2+jkz5+pc=",
@@ -70,6 +71,7 @@
       "Microsoft.Net.Http.Headers.dll": "sha256-P66ftDrXwc6ayND8uYzIk0CPQy1GjNZAPHx9RMhi3V4=",
       "Newtonsoft.Json.dll": "sha256-gkIipvi93hhq6PE+WvoKU82xCfBcfl2PTHNjD3enxt4=",
       "System.IO.Pipelines.dll": "sha256-3ET+mpR7F058YRj9YaLHOVXBqOW6iUxtIpeiKPYw4PA=",
+      "WebApiContrib.Formatting.JavaScriptSerializer.dll": "sha256-LJ7HvW2BNdY7CwBRZDWAkLb4EkK3ZA6FulYl1pCBJvg=",
       "Microsoft.CSharp.dll": "sha256-SEwnf+OVKlIODJVwpgEv6vIGOQgiwk4qjESezL0QxA8=",
       "Microsoft.VisualBasic.Core.dll": "sha256-XL3EJfsR1dfJHFBlEOootw\/VNlFSBGvHp5JatxZNdBs=",
       "Microsoft.VisualBasic.dll": "sha256-6Ef+nnOJXtA9ZqlFaHQj+jX511l9zSapNKMFPC5CtBg=",
@@ -235,11 +237,11 @@
       "mscorlib.dll": "sha256-7WjHY56PbksCp7YOxNV59r6MqLujjAH8vhnMJ+zVezY=",
       "netstandard.dll": "sha256-5TcSqPhm3fAT6s3NH7+BMGakcfGgZGd3\/\/cVwVs2VPI=",
       "System.Private.CoreLib.dll": "sha256-VJv3DLM\/G0m\/RnTeWL9X8mkbxlsn8nNRhm0BHYEY+uo=",
-      "wygrzebforum.dll": "sha256-uQoSYwKzCYkSAqQtNTdEmbGlfhwr4qiXtS7Xfh5n9qw="
+      "wygrzebforum.dll": "sha256-uWRJw0sdv26AAajFXaJR4WmX568Snq0mLyHzMfwTCac="
     },
     "lazyAssembly": null,
     "pdb": {
-      "wygrzebforum.pdb": "sha256-o1hbKywoZvErjj\/m4hvci9+w\/YQDjw9wYfb6DGNEP24="
+      "wygrzebforum.pdb": "sha256-7b1wvYDjvez9o9h+3joY4X7wHfcMJle7HH5snYDN1vE="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-PvlHrby1PYtdX46ITs6pB8iDNqXNcewh8Eoa\/Gm2+GM=",

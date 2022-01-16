@@ -750,3 +750,9 @@ C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\Kl2+uoCD.gz
 C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\Blazor.Extensions.Logging.dll.gz
 C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\Blazor.Extensions.Logging.dll
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\us1vxdc+.gz
+C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\System.Net.Http.Formatting.dll.gz
+C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\WebApiContrib.Formatting.JavaScriptSerializer.dll.gz
+C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\System.Net.Http.Formatting.dll
+C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\WebApiContrib.Formatting.JavaScriptSerializer.dll
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\yj0c+vqI.gz
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\dAdNa6Qf.gz

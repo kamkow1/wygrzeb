@@ -7,11 +7,13 @@
 @page "/Browse"
 
 <div>
-    687687
+    @foreach(var article in this.articles) {
+        <p> @article </p>
+    }
 </div>
 
 @code {
-    List<Article> articles;
+    JArray articles = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -19,11 +21,14 @@
         var url = "https://localhost:44392/article/recent";
         using var client = new HttpClient();
         var response = await client.GetAsync(url);
+        Console.WriteLine(response);
         string temp = await response.Content.ReadAsStringAsync();
         temp = temp.Replace("$", "");
+        Console.WriteLine(temp);
         dynamic content = JObject.Parse(temp);
         Console.WriteLine(content.values);
-
+        Console.WriteLine(content.values.GetType());
+        articles = content.values;
     }
 
     public class Article

@@ -126,9 +126,9 @@ using Newtonsoft.Json.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 15 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
        
-    List<Article> articles;
+    JArray articles = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -136,11 +136,14 @@ using Newtonsoft.Json.Linq;
         var url = "https://localhost:44392/article/recent";
         using var client = new HttpClient();
         var response = await client.GetAsync(url);
+        Console.WriteLine(response);
         string temp = await response.Content.ReadAsStringAsync();
         temp = temp.Replace("$", "");
+        Console.WriteLine(temp);
         dynamic content = JObject.Parse(temp);
         Console.WriteLine(content.values);
-
+        Console.WriteLine(content.values.GetType());
+        articles = content.values;
     }
 
     public class Article

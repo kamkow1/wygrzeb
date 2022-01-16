@@ -5,7 +5,7 @@
       "url": "_content\/Blazor.Extensions.Logging\/BrowserConsoleLogger.js"
     },
     {
-      "hash": "sha256-DDmSPd7xzjn1VO1s6zYJR\/BIH0W5Gs3J986Wa5thRRc=",
+      "hash": "sha256-VuR6DsK9xbparYa0KvdHwyY1+mmiWynA2eBAkuv+87Q=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -19,6 +19,10 @@
     {
       "hash": "sha256-L4TPnTYif0CoIQ511dhcGh\/KSnZxrPGiPA32PwOF\/Yg=",
       "url": "_framework\/Json.Net.dll"
+    },
+    {
+      "hash": "sha256-VfDygm51VoRbKAhn7I\/UwSnCBQY49HXcDbU++VSVAN8=",
+      "url": "_framework\/System.Net.Http.Formatting.dll"
     },
     {
       "hash": "sha256-HjR77lRKkTxolna+W0f2gS6+x8xF\/7JpHwxlO\/CPrKw=",
@@ -259,6 +263,10 @@
     {
       "hash": "sha256-3ET+mpR7F058YRj9YaLHOVXBqOW6iUxtIpeiKPYw4PA=",
       "url": "_framework\/System.IO.Pipelines.dll"
+    },
+    {
+      "hash": "sha256-LJ7HvW2BNdY7CwBRZDWAkLb4EkK3ZA6FulYl1pCBJvg=",
+      "url": "_framework\/WebApiContrib.Formatting.JavaScriptSerializer.dll"
     },
     {
       "hash": "sha256-SEwnf+OVKlIODJVwpgEv6vIGOQgiwk4qjESezL0QxA8=",
@@ -949,11 +957,11 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-uQoSYwKzCYkSAqQtNTdEmbGlfhwr4qiXtS7Xfh5n9qw=",
+      "hash": "sha256-uWRJw0sdv26AAajFXaJR4WmX568Snq0mLyHzMfwTCac=",
       "url": "_framework\/wygrzebforum.dll"
     },
     {
-      "hash": "sha256-o1hbKywoZvErjj\/m4hvci9+w\/YQDjw9wYfb6DGNEP24=",
+      "hash": "sha256-7b1wvYDjvez9o9h+3joY4X7wHfcMJle7HH5snYDN1vE=",
       "url": "_framework\/wygrzebforum.pdb"
     },
     {
@@ -971,6 +979,10 @@
     {
       "hash": "sha256-A3HBWc4+1NRH6J2Gd3CUsczIQOavrDJ3GSOihacC9GA=",
       "url": "_framework\/Json.Net.dll.gz"
+    },
+    {
+      "hash": "sha256-7mA\/uOHfn5HTX1PFTzj7zaQcbVgsxjhCxE41ALbEH0E=",
+      "url": "_framework\/System.Net.Http.Formatting.dll.gz"
     },
     {
       "hash": "sha256-rjgGkT98MCibJwkbBFZey7QRXWNzkQ1+RJCyARBVvEY=",
@@ -1211,6 +1223,10 @@
     {
       "hash": "sha256-bKUyqPBN97RAML0EFDOqEqLzHp6KbO5DKcF0CX\/cmSU=",
       "url": "_framework\/System.IO.Pipelines.dll.gz"
+    },
+    {
+      "hash": "sha256-uxO7RU743etBjxlzxCMTUfbqO7IPxppCYg22Ktk9i24=",
+      "url": "_framework\/WebApiContrib.Formatting.JavaScriptSerializer.dll.gz"
     },
     {
       "hash": "sha256-lcHdTKkatqNoaBj2ejJ5TF2mQuJECExZrX323RjMKqg=",
@@ -1965,10 +1981,6 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-yzFf+O\/mlH+Q9klUSqXP2kxGKOUFLPxaww8da8fKhGU=",
-      "url": "sample-data\/weather.json"
-    },
-    {
       "hash": "sha256-exmLYO3oKnMaJjE2YZCiLnxqVdROT+FbOiGaNPBDMQs=",
       "url": "wygrzebforum.styles.css"
     },
@@ -1977,5 +1989,5 @@
       "url": "wygrzebforum.bundle.scp.css"
     }
   ],
-  "version": "rbLcWWeK"
+  "version": "BaUzrDir"
 };

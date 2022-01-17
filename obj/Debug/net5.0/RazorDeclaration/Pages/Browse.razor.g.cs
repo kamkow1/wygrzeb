@@ -105,13 +105,6 @@ using Microsoft.Extensions.Logging;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using Newtonsoft.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
 using Newtonsoft.Json.Linq;
 
 #line default
@@ -126,37 +119,32 @@ using Newtonsoft.Json.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 21 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
        
-    JArray articles = new();
+    //JArray articles = new();
+    List<Article> articles = new();
 
     protected override async Task OnInitializedAsync()
     {
         // fetch json from api
         var url = "https://localhost:44392/article/recent";
-        using var client = new HttpClient();
-        var response = await client.GetAsync(url);
-        Console.WriteLine(response);
-        string temp = await response.Content.ReadAsStringAsync();
-        temp = temp.Replace("$", "");
-        Console.WriteLine(temp);
-        dynamic content = JObject.Parse(temp);
-        Console.WriteLine(content.values);
-        Console.WriteLine(content.values.GetType());
-        articles = content.values;
+        var httpClient = new HttpClient();
+        var content = await httpClient.GetStringAsync(url);
+        var temp = await Task.Run(() => JArray.Parse(content));
+        articles = temp.ToObject<List<Article>>();
     }
 
     public class Article
     {
-        public int Id { get; set; }
-        public DateTime CreationDate { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public string Thumbail { get; set; }
-        public int Upvotes { get; set; }
-        public int Downvotes { get; set; }
-        public int ViewCount { get; set; }
-        public int UserId { get; set; }
+        public int id { get; set; }
+        public DateTime creationDate { get; set; }
+        public string title { get; set; }
+        public string content { get; set; }
+        public string thumbail { get; set; }
+        public int upvotes { get; set; }
+        public int downvotes { get; set; }
+        public int viewCount { get; set; }
+        public int userId { get; set; }
     }
 
 #line default

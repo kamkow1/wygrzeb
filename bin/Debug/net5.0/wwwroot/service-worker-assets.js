@@ -5,7 +5,7 @@
       "url": "_content\/Blazor.Extensions.Logging\/BrowserConsoleLogger.js"
     },
     {
-      "hash": "sha256-VuR6DsK9xbparYa0KvdHwyY1+mmiWynA2eBAkuv+87Q=",
+      "hash": "sha256-V6RAzJ3fBpWbCY0LWLbHH\/1pB9E56V6QMrZ96MCuAF8=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -957,11 +957,11 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-uWRJw0sdv26AAajFXaJR4WmX568Snq0mLyHzMfwTCac=",
+      "hash": "sha256-nfAOkSjwIzohycaW01wmkaguZ6c25h1msyoDf569kz0=",
       "url": "_framework\/wygrzebforum.dll"
     },
     {
-      "hash": "sha256-7b1wvYDjvez9o9h+3joY4X7wHfcMJle7HH5snYDN1vE=",
+      "hash": "sha256-4vah2PEcvvuFvd1Uy\/JrbiZGQDXeti0jHnAIwzPZkpQ=",
       "url": "_framework\/wygrzebforum.pdb"
     },
     {
@@ -1917,7 +1917,7 @@
       "url": "_framework\/dotnet.5.0.10.js.gz"
     },
     {
-      "hash": "sha256-8aM9R9K90X6h+KPDW4OzrEh071mAs7dvAQxjBxAZQAc=",
+      "hash": "sha256-KcD8QJGgDkeAMcSyro2zgZTmSMlp\/dPPWw8OY3OZOBM=",
       "url": "css\/app.css"
     },
     {
@@ -1989,5 +1989,5 @@
       "url": "wygrzebforum.bundle.scp.css"
     }
   ],
-  "version": "BaUzrDir"
+  "version": "cz4L9zom"
 };

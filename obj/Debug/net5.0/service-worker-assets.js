@@ -5,7 +5,7 @@
       "url": "_content\/Blazor.Extensions.Logging\/BrowserConsoleLogger.js"
     },
     {
-      "hash": "sha256-V6RAzJ3fBpWbCY0LWLbHH\/1pB9E56V6QMrZ96MCuAF8=",
+      "hash": "sha256-73HPO6KV+I+a84x2DUiRHh5\/2t\/zSM37dVQBdo7pjuM=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -957,11 +957,11 @@
       "url": "_framework\/dotnet.5.0.10.js"
     },
     {
-      "hash": "sha256-nfAOkSjwIzohycaW01wmkaguZ6c25h1msyoDf569kz0=",
+      "hash": "sha256-m0utYNsNco339Pr2FVsCAIkFc\/1RdBxc8sZmM\/vLVV4=",
       "url": "_framework\/wygrzebforum.dll"
     },
     {
-      "hash": "sha256-4vah2PEcvvuFvd1Uy\/JrbiZGQDXeti0jHnAIwzPZkpQ=",
+      "hash": "sha256-tczb8htC738IOTpCpoZIGLfyzIg1ht87WB1slR\/vVJQ=",
       "url": "_framework\/wygrzebforum.pdb"
     },
     {
@@ -1917,16 +1917,20 @@
       "url": "_framework\/dotnet.5.0.10.js.gz"
     },
     {
-      "hash": "sha256-KcD8QJGgDkeAMcSyro2zgZTmSMlp\/dPPWw8OY3OZOBM=",
+      "hash": "sha256-dXT9ipOAjq0H9DC1+qqZWgJLEG72Z2hxfglHp+Opz9E=",
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-rldnE7wZYJj3Q43t5v8fg1ojKRwyt0Wtfm+224CacZs=",
+      "hash": "sha256-JJ6CeJO7eaHPdpsSku8NSOhxX2WbQ5mjiq7kZwsmFao=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
-      "hash": "sha256-xMZ0SaSBYZSHVjFdZTAT\/IjRExRIxSriWcJLcA9nkj0=",
+      "hash": "sha256-phnG0TBSOGjqZoc2TPfoCXuOWPyXWS2vxPxttygEZ18=",
       "url": "css\/bootstrap\/bootstrap.min.css.map"
+    },
+    {
+      "hash": "sha256-5TYyIpKZfcW+nSXJkNmrnwxZAtIsPu48FM4j8FXUu5w=",
+      "url": "css\/loading_screen.css"
     },
     {
       "hash": "sha256-jA4J4h\/k76zVxbFKEaWwFKJccmO0voOQ1DbUW+5YNlI=",
@@ -1973,7 +1977,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-UdZA\/ZqGrvH5PvcyvnK7FYk66GwdSGJc2b6VHPMPlb0=",
+      "hash": "sha256-pqTcm0zEpJ9u3MjWFP\/223Yk9qvVdvwao211cJ33l1Q=",
       "url": "index.html"
     },
     {
@@ -1981,13 +1985,13 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-exmLYO3oKnMaJjE2YZCiLnxqVdROT+FbOiGaNPBDMQs=",
+      "hash": "sha256-1DWJmbcr3rltOp+yU+tutXBUNnkegmbdnWTL35QE8VA=",
       "url": "wygrzebforum.styles.css"
     },
     {
-      "hash": "sha256-5m5jZSY4sq7dHKvcKG3CCISkvOz2N+soLSeQn35uiXg=",
+      "hash": "sha256-IFXBRGIAQl5JP26BPjU6q1zRoT9HLnFB7jNWGx9KXtk=",
       "url": "wygrzebforum.bundle.scp.css"
     }
   ],
-  "version": "cz4L9zom"
+  "version": "hqo5n0z3"
 };

@@ -756,3 +756,4 @@ C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\Sys
 C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\WebApiContrib.Formatting.JavaScriptSerializer.dll
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\yj0c+vqI.gz
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\dAdNa6Qf.gz
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\Browse.razor.rz.scp.css

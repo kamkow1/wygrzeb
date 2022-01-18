@@ -84,28 +84,14 @@ using wygrzebforum.Shared;
 #nullable disable
 #nullable restore
 #line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using System.Net;
+using Newtonsoft.Json.Linq;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using System.IO;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using Microsoft.Extensions.Logging;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using Newtonsoft.Json.Linq;
+using wygrzebforum.Models;
 
 #line default
 #line hidden
@@ -119,7 +105,7 @@ using Newtonsoft.Json.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 21 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 57 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
        
     //JArray articles = new();
     List<Article> articles = new();
@@ -131,20 +117,7 @@ using Newtonsoft.Json.Linq;
         var httpClient = new HttpClient();
         var content = await httpClient.GetStringAsync(url);
         var temp = await Task.Run(() => JArray.Parse(content));
-        articles = temp.ToObject<List<Article>>();
-    }
-
-    public class Article
-    {
-        public int id { get; set; }
-        public DateTime creationDate { get; set; }
-        public string title { get; set; }
-        public string content { get; set; }
-        public string thumbail { get; set; }
-        public int upvotes { get; set; }
-        public int downvotes { get; set; }
-        public int viewCount { get; set; }
-        public int userId { get; set; }
+        this.articles = temp.ToObject<List<Article>>();
     }
 
 #line default

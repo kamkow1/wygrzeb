@@ -20,7 +20,7 @@ button:focus[b-bgmzpbzp1m] {
 
 @keyframes btn-color-b-bgmzpbzp1m {
     0% {
-        color: rgb(255 0 0);
+        color: #808080;
     }
     100% {
         color: none;
@@ -48,10 +48,17 @@ svg[b-bgmzpbzp1m] {
 
 .btn-down[b-bgmzpbzp1m] {
     display: inline-block;
-    float: left;
+    float: right;
 }
 
 .article-results[b-bgmzpbzp1m] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-content-msg[b-bgmzpbzp1m] {
+    font-size: 5em;
     display: flex;
     justify-content: center;
     align-items: center;

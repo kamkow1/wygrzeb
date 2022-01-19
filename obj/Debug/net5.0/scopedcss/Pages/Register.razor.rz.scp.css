@@ -1,0 +1,30 @@
+.form-input-block[b-vxjr8mqqjo] {
+    width: 30em;
+    display: inline-block;
+    float: left;
+}
+
+.reg-form[b-vxjr8mqqjo] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[b-vxjr8mqqjo]::-webkit-outer-spin-button,
+input[b-vxjr8mqqjo]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number][b-vxjr8mqqjo] {
+    -moz-appearance: textfield;
+}
+
+.sm-input[b-vxjr8mqqjo] {
+    width: 14em;
+}
+
+.sm-inline-input[b-vxjr8mqqjo] {
+    display: inline-block;
+    float: left;
+}

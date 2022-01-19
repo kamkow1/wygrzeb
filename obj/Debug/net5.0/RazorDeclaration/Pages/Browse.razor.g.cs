@@ -84,19 +84,47 @@ using wygrzebforum.Shared;
 #nullable disable
 #nullable restore
 #line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using Newtonsoft.Json.Linq;
+using Json.Net;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+using Newtonsoft.Json.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+using System.Net;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+using System.Text;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
 using wygrzebforum.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Browse")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/browse")]
     public partial class Browse : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,19 +133,59 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 61 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
        
-    //JArray articles = new();
     List<Article> articles = new();
 
     protected override async Task OnInitializedAsync()
     {
-        // fetch json from api
         var url = "https://localhost:44392/article/recent";
         var httpClient = new HttpClient();
         var content = await httpClient.GetStringAsync(url);
         var temp = await Task.Run(() => JArray.Parse(content));
         this.articles = temp.ToObject<List<Article>>();
+    }
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 74 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+            
+    async void Upvote(int articleid)
+    {
+        var url = "https://localhost:44392/article/upvote";
+
+        string data = JsonConvert.SerializeObject(new { id = articleid });
+
+        using var client = new HttpClient();
+        client.DefaultRequestHeaders.Accept.Add(
+            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url);
+        request.Content = new StringContent(data,
+                                    Encoding.UTF8, 
+                                    "application/json");
+
+        await client.SendAsync(request);
+    }
+
+    async void Downvote(int articleid)
+    {
+        var url = "https://localhost:44392/article/downvote";
+
+        string data = JsonConvert.SerializeObject(new { id = articleid });
+
+        using var client = new HttpClient();
+        client.DefaultRequestHeaders.Accept.Add(
+            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url);
+        request.Content = new StringContent(data,
+                                    Encoding.UTF8, 
+                                    "application/json");
+
+        await client.SendAsync(request);
     }
 
 #line default

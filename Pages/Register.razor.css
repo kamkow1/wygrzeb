@@ -1,0 +1,30 @@
+﻿.form-input-block {
+    width: 30em;
+    display: inline-block;
+    float: left;
+}
+
+.reg-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.sm-input {
+    width: 14em;
+}
+
+.sm-inline-input {
+    display: inline-block;
+    float: left;
+}

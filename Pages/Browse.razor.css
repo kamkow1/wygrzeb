@@ -20,7 +20,7 @@ button:focus {
 
 @keyframes btn-color {
     0% {
-        color: rgb(255 0 0);
+        color: #808080;
     }
     100% {
         color: none;
@@ -48,10 +48,17 @@ svg {
 
 .btn-down {
     display: inline-block;
-    float: left;
+    float: right;
 }
 
 .article-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-content-msg {
+    font-size: 5em;
     display: flex;
     justify-content: center;
     align-items: center;

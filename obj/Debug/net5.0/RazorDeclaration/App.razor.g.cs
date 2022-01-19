@@ -90,7 +90,7 @@ using wygrzebforum.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "C:\Users\kamil\source\repos\wygrzebforum\App.razor"
+#line 20 "C:\Users\kamil\source\repos\wygrzebforum\App.razor"
        
     protected override async Task OnInitializedAsync()
     {

@@ -237,11 +237,11 @@
       "mscorlib.dll": "sha256-7WjHY56PbksCp7YOxNV59r6MqLujjAH8vhnMJ+zVezY=",
       "netstandard.dll": "sha256-5TcSqPhm3fAT6s3NH7+BMGakcfGgZGd3\/\/cVwVs2VPI=",
       "System.Private.CoreLib.dll": "sha256-VJv3DLM\/G0m\/RnTeWL9X8mkbxlsn8nNRhm0BHYEY+uo=",
-      "wygrzebforum.dll": "sha256-m0utYNsNco339Pr2FVsCAIkFc\/1RdBxc8sZmM\/vLVV4="
+      "wygrzebforum.dll": "sha256-QASFVZXnJkn2IfLk89v0ZHslefF2bmu44uT1LnpNGEc="
     },
     "lazyAssembly": null,
     "pdb": {
-      "wygrzebforum.pdb": "sha256-tczb8htC738IOTpCpoZIGLfyzIg1ht87WB1slR\/vVJQ="
+      "wygrzebforum.pdb": "sha256-HzWftc1J+8AwU2\/YdQKGIFbQv9DtenGtgs8Eyv8aMnU="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-PvlHrby1PYtdX46ITs6pB8iDNqXNcewh8Eoa\/Gm2+GM=",

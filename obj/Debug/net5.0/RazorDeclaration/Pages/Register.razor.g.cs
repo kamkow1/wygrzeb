@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace wygrzebforum.Shared
+namespace wygrzebforum.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,15 @@ using wygrzebforum.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
+using wygrzebforum.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/register")]
+    public partial class Register : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,16 +98,9 @@ using wygrzebforum.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "C:\Users\kamil\source\repos\wygrzebforum\Shared\NavMenu.razor"
+#line 297 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
        
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    User userModel = new();
 
 #line default
 #line hidden

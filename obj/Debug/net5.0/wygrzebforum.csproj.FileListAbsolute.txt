@@ -757,3 +757,6 @@ C:\Users\kamil\source\repos\wygrzebforum\bin\Debug\net5.0\wwwroot\_framework\Web
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\yj0c+vqI.gz
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\build-gz\dAdNa6Qf.gz
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\Browse.razor.rz.scp.css
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\RazorDeclaration\Pages\Register.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\Razor\Pages\Register.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\Register.razor.rz.scp.css

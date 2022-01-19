@@ -97,6 +97,10 @@ input[type=number][b-vxjr8mqqjo] {
     display: inline-block;
     float: left;
 }
+
+.msg-invalid[b-vxjr8mqqjo] {
+    font-size: 0.8em;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-hiztd9n5xk] {
     position: relative;

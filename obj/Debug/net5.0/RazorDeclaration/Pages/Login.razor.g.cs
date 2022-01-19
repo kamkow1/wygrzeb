@@ -82,65 +82,13 @@ using wygrzebforum.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
-using Newtonsoft.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
-using System.Text;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
-using wygrzebforum.Models;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/register")]
-    public partial class Register : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 58 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
-       
-    User userModel = new();
-
-    async Task ValidFormOnSubmit(EditContext editContext)
-    {
-        object userToSubmit = new 
-        {
-            login = userModel.Login,
-            password = userModel.Password,
-            email = userModel.Email
-        };
-        Console.WriteLine(JsonConvert.SerializeObject(userToSubmit));
-
-        var json = JsonConvert.SerializeObject(userToSubmit);
-        var data = new StringContent(json, Encoding.UTF8, "application/json");
-
-        var url = "https://localhost:44392/user/register";
-        using var client = new HttpClient();
-
-        var response = await client.PostAsync(url, data);
-
-        string result = response.Content.ReadAsStringAsync().Result;
-        Console.WriteLine(result);
-    }
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591

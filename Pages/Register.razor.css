@@ -28,3 +28,7 @@ input[type=number] {
     display: inline-block;
     float: left;
 }
+
+.msg-invalid {
+    font-size: 0.8em;
+}

@@ -1,0 +1,82 @@
+﻿@using Newtonsoft.Json
+@using System.Text
+@using wygrzebforum.Models
+
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject Session session
+
+@page "/login"
+
+<div class="reg-form">
+    <EditForm Model="@userModel" OnSubmit="@ValidOnSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="form-input-block">
+            <div class="form-group">
+                <label for="login">Login</label>
+
+                <div class="msg-invalid">
+                    <ValidationMessage For="@(() => userModel.Login)"  />
+                </div>
+
+                <InputText @bind-Value="userModel.Login" class="form-control form-input" placeholder="wpisz login" id="login" />
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                
+                <div class="msg-invalid">
+                    <ValidationMessage For="@(() => userModel.Password)" />
+                </div>
+
+                <InputText type="password" @bind-Value="userModel.Password" class="form-control form-input" placeholder="wpisz hasło" id="password" />
+            </div>
+            <div class="form-group" style="display: inline-block; margin-top: 2em;">
+                <button type="submit" class="btn btn-outline-dark" style="margin-right: 1em;">zaloguj</button>
+            </div>
+        </div>
+        
+        @if ((int)response.StatusCode != 200)
+        {
+            <p class="text-centet text-danger">Nie udało się zalogować!</p>
+        }
+    </EditForm>
+</div>
+
+@code {
+    User userModel = new();
+    HttpResponseMessage response = new();
+
+    async void ValidOnSubmit(EditContext editContext)
+    {
+        object userToSubmit = new 
+        {
+            login = userModel.Login,
+            password = userModel.Password
+        };
+
+        var json = JsonConvert.SerializeObject(userToSubmit);
+        var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var url = "https://localhost:44392/user/login";
+        using var client = new HttpClient();
+
+        response = await client.PostAsync(url, data);
+
+        RequestResult result = response.Content.ReadAsAsync<RequestResult>().Result;
+
+        if (response.IsSuccessStatusCode)
+        {
+            session.IsUserLoggedIn = true;
+            session.CurrentUserId = result.id;
+            session.RemoteIpAdress = result.ip;
+            await sessionStorage.SetItemAsync("SessionState", session);
+            Console.WriteLine(await sessionStorage.GetItemAsync<object>("SessionState"));
+        }
+    }
+
+    class RequestResult
+    {
+        public int id { get; set; }
+        public string ip { get; set; }
+    }
+}

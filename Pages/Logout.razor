@@ -1,0 +1,12 @@
+﻿@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject Session session
+@inject NavigationManager navigation
+
+@page "/logout"
+
+@code {
+    protected override void OnInitialized()
+    {
+        navigation.NavigateTo("", true);
+    }
+}

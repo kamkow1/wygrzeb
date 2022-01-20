@@ -1,0 +1,24 @@
+﻿.form-input-block {
+    width: 30em;
+    display: inline-block;
+    float: left;
+}
+
+.reg-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sm-input {
+    width: 14em;
+}
+
+.sm-inline-input {
+    display: inline-block;
+    float: left;
+}
+
+.msg-invalid {
+    font-size: 0.8em;
+}

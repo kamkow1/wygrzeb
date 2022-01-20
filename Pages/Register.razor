@@ -1,0 +1,82 @@
+﻿@using Newtonsoft.Json
+@using System.Text
+@using wygrzebforum.Models
+
+@page "/register"
+
+<p style="font-size: 0.8em;">
+    masz już konto? <a href="/login" class="page-link text-primary" style="width: 10em;">zaloguj się tutaj!</a>
+</p>
+
+<div class="reg-form">
+    <EditForm Model="@userModel" OnValidSubmit="@ValidOnSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="form-input-block">
+            <div class="form-group">
+                <label for="login">Login</label>
+
+                <div class="msg-invalid">
+                    <ValidationMessage For="@(() => userModel.Login)"  />
+                </div>
+
+                <InputText @bind-Value="userModel.Login" class="form-control form-input" placeholder="wpisz login" id="login" />
+                <small class="form-text text-muted">login będzie wyświetlany jako nazwa użytkownika</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                
+                <div class="msg-invalid">
+                    <ValidationMessage For="@(() => userModel.Password)" />
+                </div>
+
+                <InputText type="password" @bind-Value="userModel.Password" class="form-control form-input" placeholder="wpisz hasło" id="password" />
+                <small class="form-text text-muted">pamiętaj, aby twoje hasło było bezpieczne</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                
+                <div class="msg-invalid">
+                    <ValidationMessage For="@(() => userModel.Email)" />
+                </div>
+
+                <InputText type="email" @bind-Value="userModel.Email" class="form-control form-input" placeholder="wpisz email" id="email" />
+            </div>
+            <div class="form-group">
+                
+                <div class="msg-invalid">
+                    <ValidationMessage For="@(() => userModel.PolicyAgreement)" />
+                </div>
+
+                <InputCheckbox @bind-Value="userModel.PolicyAgreement" class="custom-checkbox" />
+                <label for="agreement-info"><small>Zgadzam się z warunkami korzystania z serwisu</small></label>
+            </div>  
+            <div class="form-group" style="display: inline-block; margin-top: 2em;">
+                <input type="submit" value="prześlij" class="btn btn-outline-dark" style="margin-right: 1em;" />
+                <input type="reset" value="wyczyść" class="btn btn-outline-danger" />
+            </div>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    User userModel = new();
+
+    async void ValidOnSubmit(EditContext editContext)
+    {
+        object userToSubmit = new 
+        {
+            login = userModel.Login,
+            password = userModel.Password,
+            email = userModel.Email
+        };
+
+        var json = JsonConvert.SerializeObject(userToSubmit);
+        var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var url = "https://localhost:44392/user/register";
+        using var client = new HttpClient();
+
+        var response = await client.PostAsync(url, data);
+    }
+}

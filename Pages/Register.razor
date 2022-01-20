@@ -4,8 +4,12 @@
 
 @page "/register"
 
+<p style="font-size: 0.8em;">
+    masz już konto? <a href="/login" class="page-link text-primary" style="width: 10em;">zaloguj się tutaj!</a>
+</p>
+
 <div class="reg-form">
-    <EditForm Model="@userModel" OnValidSubmit="@ValidFormOnSubmit">
+    <EditForm Model="@userModel" OnValidSubmit="@ValidOnSubmit">
         <DataAnnotationsValidator />
 
         <div class="form-input-block">
@@ -58,7 +62,7 @@
 @code {
     User userModel = new();
 
-    async Task ValidFormOnSubmit(EditContext editContext)
+    async void ValidOnSubmit(EditContext editContext)
     {
         object userToSubmit = new 
         {
@@ -66,7 +70,6 @@
             password = userModel.Password,
             email = userModel.Email
         };
-        Console.WriteLine(JsonConvert.SerializeObject(userToSubmit));
 
         var json = JsonConvert.SerializeObject(userToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -75,8 +78,5 @@
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);
-
-        string result = response.Content.ReadAsStringAsync().Result;
-        Console.WriteLine(result);
     }
 }

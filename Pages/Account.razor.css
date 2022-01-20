@@ -1,0 +1,66 @@
+﻿.article-content {
+    font-size: 0.9em;
+}
+
+.article-img {
+    float: left;
+}
+
+button {
+    padding-top: 4em;
+    border: none;
+    background: none;
+    transition: transform .1s ease;
+}
+
+    button:focus {
+        outline: none;
+        animation: btn-color 2s ease normal;
+    }
+
+@keyframes btn-color {
+    0% {
+        color: #808080;
+    }
+
+    100% {
+        color: none;
+    }
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+svg {
+    padding-bottom: 0.2em;
+}
+
+.up-down-group {
+    width: 12em;
+    text-align: center;
+    vertical-align: middle
+}
+
+.btn-up {
+    display: inline-block;
+    float: right;
+}
+
+.btn-down {
+    display: inline-block;
+    float: right;
+}
+
+.article-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-content-msg {
+    font-size: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

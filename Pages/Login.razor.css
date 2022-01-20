@@ -1,24 +1,24 @@
-.form-input-block[b-vxjr8mqqjo] {
+﻿.form-input-block {
     width: 30em;
     display: inline-block;
     float: left;
 }
 
-.reg-form[b-vxjr8mqqjo] {
+.reg-form {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sm-input[b-vxjr8mqqjo] {
+.sm-input {
     width: 14em;
 }
 
-.sm-inline-input[b-vxjr8mqqjo] {
+.sm-inline-input {
     display: inline-block;
     float: left;
 }
 
-.msg-invalid[b-vxjr8mqqjo] {
+.msg-invalid {
     font-size: 0.8em;
 }

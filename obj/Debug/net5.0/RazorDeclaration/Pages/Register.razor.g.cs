@@ -112,11 +112,11 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
+#line 62 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
        
     User userModel = new();
 
-    async Task ValidFormOnSubmit(EditContext editContext)
+    async void ValidOnSubmit(EditContext editContext)
     {
         object userToSubmit = new 
         {
@@ -124,7 +124,6 @@ using wygrzebforum.Models;
             password = userModel.Password,
             email = userModel.Email
         };
-        Console.WriteLine(JsonConvert.SerializeObject(userToSubmit));
 
         var json = JsonConvert.SerializeObject(userToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -133,9 +132,6 @@ using wygrzebforum.Models;
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);
-
-        string result = response.Content.ReadAsStringAsync().Result;
-        Console.WriteLine(result);
     }
 
 #line default

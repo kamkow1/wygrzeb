@@ -1,0 +1,46 @@
+﻿@using Newtonsoft.Json
+@using System.Text
+@using wygrzebforum.Models
+
+@inject Session session
+
+<div class="search-form">
+    <EditForm Model="searchModel" OnSubmit="ValidOnSubmit">
+        <div class="input-group rounded">
+              <InputText class="form-control rounded" placeholder="wyszukaj frazę..." style="width: 40em;" @bind-Value="searchModel.query" />
+              <span class="input-group-text border-0" id="search-addon">
+                <button type="submit" style="margin: 0; padding: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+              </span>
+            </div>
+    </EditForm>
+</div>
+<div style="padding-bottom: 5em;"></div>
+
+@code {
+    Search searchModel = new();
+    HttpResponseMessage response = new();
+
+    async void ValidOnSubmit()
+    {
+        object searchToSubmit = new 
+        {
+            query = searchModel.query,
+            timestamp = DateTime.UtcNow,
+            userId = session.CurrentUserId
+        };
+
+        var json = JsonConvert.SerializeObject(searchToSubmit);
+        var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var url = "https://localhost:44392/search/new";
+        using var client = new HttpClient();
+
+        response = await client.PostAsync(url, data);
+        Console.WriteLine(response);
+
+    }
+}

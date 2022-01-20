@@ -1,0 +1,16 @@
+button[b-wlgervb4zx] {
+    padding-top: 4em;
+    border: none;
+    background: none;
+    transition: transform .1s ease;
+}
+
+button:focus[b-wlgervb4zx] {
+    outline: none;
+}
+
+.search-form[b-wlgervb4zx] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

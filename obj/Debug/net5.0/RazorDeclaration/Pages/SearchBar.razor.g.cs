@@ -83,28 +83,27 @@ using wygrzebforum.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\SearchBar.razor"
 using Newtonsoft.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+#line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\SearchBar.razor"
 using System.Text;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\SearchBar.razor"
 using wygrzebforum.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class SearchBar : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,50 +111,35 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+#line 23 "C:\Users\kamil\source\repos\wygrzebforum\Pages\SearchBar.razor"
        
-    User userModel = new();
+    Search searchModel = new();
     HttpResponseMessage response = new();
 
-    async void ValidOnSubmit(EditContext editContext)
+    async void ValidOnSubmit()
     {
-        object userToSubmit = new 
+        object searchToSubmit = new 
         {
-            login = userModel.Login,
-            password = userModel.Password
+            query = searchModel.query,
+            timestamp = DateTime.UtcNow,
+            userId = session.CurrentUserId
         };
 
-        var json = JsonConvert.SerializeObject(userToSubmit);
+        var json = JsonConvert.SerializeObject(searchToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var url = "https://localhost:44392/user/login";
+        var url = "https://localhost:44392/search/new";
         using var client = new HttpClient();
 
         response = await client.PostAsync(url, data);
+        Console.WriteLine(response);
 
-        RequestResult result = response.Content.ReadAsAsync<RequestResult>().Result;
-
-        if (response.IsSuccessStatusCode)
-        {
-            session.IsUserLoggedIn = true;
-            session.CurrentUserId = result.id;
-            session.RemoteIpAdress = result.ip;
-            await sessionStorage.SetItemAsync("SessionState", session);
-            Console.WriteLine(await sessionStorage.GetItemAsync<object>("SessionState"));
-        }
-    }
-
-    class RequestResult
-    {
-        public int id { get; set; }
-        public string ip { get; set; }
     }
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Session session { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }
 }
 #pragma warning restore 1591

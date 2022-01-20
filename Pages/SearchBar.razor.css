@@ -1,0 +1,16 @@
+﻿button {
+    padding-top: 4em;
+    border: none;
+    background: none;
+    transition: transform .1s ease;
+}
+
+button:focus {
+    outline: none;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

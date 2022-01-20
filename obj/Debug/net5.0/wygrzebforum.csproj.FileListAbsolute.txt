@@ -762,3 +762,12 @@ C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\Razor\Pages\Register.r
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\Register.razor.rz.scp.css
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\RazorDeclaration\Pages\Login.razor.g.cs
 C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\Razor\Pages\Login.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\Login.razor.rz.scp.css
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\RazorDeclaration\Pages\Account.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\Razor\Pages\Account.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\RazorDeclaration\Pages\Logout.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\Razor\Pages\Logout.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\Account.razor.rz.scp.css
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\RazorDeclaration\Pages\SearchBar.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\Razor\Pages\SearchBar.razor.g.cs
+C:\Users\kamil\source\repos\wygrzebforum\obj\Debug\net5.0\scopedcss\Pages\SearchBar.razor.rz.scp.css

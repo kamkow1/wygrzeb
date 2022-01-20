@@ -90,11 +90,12 @@ using wygrzebforum.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 20 "C:\Users\kamil\source\repos\wygrzebforum\App.razor"
+#line 21 "C:\Users\kamil\source\repos\wygrzebforum\App.razor"
        
     protected override async Task OnInitializedAsync()
     {
-        await sessionStorage.SetItemAsync("IsUserLoggedIn", false);
+        session.IsUserLoggedIn = false;
+        await sessionStorage.SetItemAsync("SessionState", session);
     }
 
     public async void Clear()
@@ -105,6 +106,7 @@ using wygrzebforum.Shared;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Session session { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }
 }

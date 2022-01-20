@@ -1,5 +1,72 @@
 @import '';
 
+/* /Pages/Account.razor.rz.scp.css */
+.article-content[b-qh1iez3yxd] {
+    font-size: 0.9em;
+}
+
+.article-img[b-qh1iez3yxd] {
+    float: left;
+}
+
+button[b-qh1iez3yxd] {
+    padding-top: 4em;
+    border: none;
+    background: none;
+    transition: transform .1s ease;
+}
+
+    button:focus[b-qh1iez3yxd] {
+        outline: none;
+        animation: btn-color-b-qh1iez3yxd 2s ease normal;
+    }
+
+@keyframes btn-color-b-qh1iez3yxd {
+    0% {
+        color: #808080;
+    }
+
+    100% {
+        color: none;
+    }
+}
+
+button:hover[b-qh1iez3yxd] {
+    transform: scale(1.07);
+}
+
+svg[b-qh1iez3yxd] {
+    padding-bottom: 0.2em;
+}
+
+.up-down-group[b-qh1iez3yxd] {
+    width: 12em;
+    text-align: center;
+    vertical-align: middle
+}
+
+.btn-up[b-qh1iez3yxd] {
+    display: inline-block;
+    float: right;
+}
+
+.btn-down[b-qh1iez3yxd] {
+    display: inline-block;
+    float: right;
+}
+
+.article-results[b-qh1iez3yxd] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-content-msg[b-qh1iez3yxd] {
+    font-size: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* /Pages/Browse.razor.rz.scp.css */
 .article-content[b-bgmzpbzp1m] {
     font-size: 0.9em;
@@ -66,6 +133,31 @@ svg[b-bgmzpbzp1m] {
     justify-content: center;
     align-items: center;
 }
+/* /Pages/Login.razor.rz.scp.css */
+.form-input-block[b-f10krebyoc] {
+    width: 30em;
+    display: inline-block;
+    float: left;
+}
+
+.reg-form[b-f10krebyoc] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sm-input[b-f10krebyoc] {
+    width: 14em;
+}
+
+.sm-inline-input[b-f10krebyoc] {
+    display: inline-block;
+    float: left;
+}
+
+.msg-invalid[b-f10krebyoc] {
+    font-size: 0.8em;
+}
 /* /Pages/Register.razor.rz.scp.css */
 .form-input-block[b-vxjr8mqqjo] {
     width: 30em;
@@ -79,16 +171,6 @@ svg[b-bgmzpbzp1m] {
     align-items: center;
 }
 
-input[b-vxjr8mqqjo]::-webkit-outer-spin-button,
-input[b-vxjr8mqqjo]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number][b-vxjr8mqqjo] {
-    -moz-appearance: textfield;
-}
-
 .sm-input[b-vxjr8mqqjo] {
     width: 14em;
 }
@@ -100,6 +182,23 @@ input[type=number][b-vxjr8mqqjo] {
 
 .msg-invalid[b-vxjr8mqqjo] {
     font-size: 0.8em;
+}
+/* /Pages/SearchBar.razor.rz.scp.css */
+button[b-wlgervb4zx] {
+    padding-top: 4em;
+    border: none;
+    background: none;
+    transition: transform .1s ease;
+}
+
+button:focus[b-wlgervb4zx] {
+    outline: none;
+}
+
+.search-form[b-wlgervb4zx] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-hiztd9n5xk] {

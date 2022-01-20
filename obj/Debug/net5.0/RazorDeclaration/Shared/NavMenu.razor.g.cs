@@ -90,7 +90,7 @@ using wygrzebforum.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "C:\Users\kamil\source\repos\wygrzebforum\Shared\NavMenu.razor"
+#line 63 "C:\Users\kamil\source\repos\wygrzebforum\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
@@ -104,6 +104,8 @@ using wygrzebforum.Shared;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Session session { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }
 }
 #pragma warning restore 1591

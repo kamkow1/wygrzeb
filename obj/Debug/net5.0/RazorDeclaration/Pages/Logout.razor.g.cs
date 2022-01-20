@@ -82,29 +82,8 @@ using wygrzebforum.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
-using Newtonsoft.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
-using System.Text;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
-using wygrzebforum.Models;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/logout")]
+    public partial class Logout : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,48 +91,17 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+#line 7 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Logout.razor"
        
-    User userModel = new();
-    HttpResponseMessage response = new();
-
-    async void ValidOnSubmit(EditContext editContext)
+    protected override void OnInitialized()
     {
-        object userToSubmit = new 
-        {
-            login = userModel.Login,
-            password = userModel.Password
-        };
-
-        var json = JsonConvert.SerializeObject(userToSubmit);
-        var data = new StringContent(json, Encoding.UTF8, "application/json");
-
-        var url = "https://localhost:44392/user/login";
-        using var client = new HttpClient();
-
-        response = await client.PostAsync(url, data);
-
-        RequestResult result = response.Content.ReadAsAsync<RequestResult>().Result;
-
-        if (response.IsSuccessStatusCode)
-        {
-            session.IsUserLoggedIn = true;
-            session.CurrentUserId = result.id;
-            session.RemoteIpAdress = result.ip;
-            await sessionStorage.SetItemAsync("SessionState", session);
-            Console.WriteLine(await sessionStorage.GetItemAsync<object>("SessionState"));
-        }
-    }
-
-    class RequestResult
-    {
-        public int id { get; set; }
-        public string ip { get; set; }
+        navigation.NavigateTo("", true);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Session session { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }

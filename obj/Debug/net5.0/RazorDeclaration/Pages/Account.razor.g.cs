@@ -83,49 +83,35 @@ using wygrzebforum.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using Json.Net;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 1 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
 using Newtonsoft.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 2 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
 using Newtonsoft.Json.Linq;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-using System.Net;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 3 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
 using System.Text;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 4 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
 using wygrzebforum.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/browse")]
-    public partial class Browse : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/account")]
+    public partial class Account : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -133,28 +119,40 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 93 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
        
+    int userIdFromSession;
+    HttpResponseMessage response = new();
+    User user = new();
     List<Article> articles = new();
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        var url = "https://localhost:44392/article/recent";
-        var httpClient = new HttpClient();
-        var content = await httpClient.GetStringAsync(url);
-        var temp = await Task.Run(() => JArray.Parse(content));
-        this.articles = temp.ToObject<List<Article>>();
+        // fetch json user data from api
+        Session Utemp = await sessionStorage.GetItemAsync<Session>("SessionState");
+        userIdFromSession = Utemp.CurrentUserId; 
+        var Uurl = "https://localhost:44392/user/getbyid";
+        object idToSubmit = new 
+        {
+            id = userIdFromSession
+        };
+        var Ujson = JsonConvert.SerializeObject(idToSubmit);
+        var Udata = new StringContent(Ujson, Encoding.UTF8, "application/json");
+        using var client = new HttpClient();
+        response = await client.PostAsync(Uurl, Udata);
+        user = response.Content.ReadAsAsync<User>().Result;
+        await sessionStorage.SetItemAsync<User>("SessionState", user);
+
+        // fetch json array of articles for current user
+        var url = "https://localhost:44392/user/articles";
+        var json = JsonConvert.SerializeObject(idToSubmit);
+        var data = new StringContent(json, Encoding.UTF8, "application/json");
+        response = await client.PostAsync(url, data);
+        var temp = Task.Run(async() => JArray.Parse(await response.Content.ReadAsStringAsync()));
+        Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+        this.articles = (await temp).ToObject<List<Article>>();
     }
 
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 81 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
-            
     async void Upvote(int articleid)
     {
         var url = "https://localhost:44392/article/upvote";
@@ -194,6 +192,8 @@ using wygrzebforum.Models;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Session session { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }
 }
 #pragma warning restore 1591

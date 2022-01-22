@@ -2,6 +2,8 @@
 @using System.Text
 @using wygrzebforum.Models
 
+@inject NavigationManager nav
+
 @page "/register"
 
 <p style="font-size: 0.8em;">
@@ -78,5 +80,7 @@
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);
+
+        nav.NavigateTo("login", false);
     }
 }

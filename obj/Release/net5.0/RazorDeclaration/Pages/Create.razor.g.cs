@@ -112,7 +112,7 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Create.razor"
+#line 66 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Create.razor"
        
     Article articleModel = new();
 
@@ -136,11 +136,14 @@ using wygrzebforum.Models;
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);
+
+        nav.NavigateTo("browse", false);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager nav { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private WygrzebSessionData wygrzebSessionData { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }

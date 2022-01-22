@@ -174,6 +174,8 @@ using wygrzebforum.Models;
                                     "application/json");
 
         await client.SendAsync(request);
+
+        StateHasChanged();
     }
 
     async void Downvote(int articleid)
@@ -192,6 +194,8 @@ using wygrzebforum.Models;
                                     "application/json");
 
         await client.SendAsync(request);
+
+        StateHasChanged();
     }
 
 #line default

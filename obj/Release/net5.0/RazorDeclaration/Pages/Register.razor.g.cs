@@ -112,7 +112,7 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 62 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
+#line 64 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Register.razor"
        
     User userModel = new();
 
@@ -132,11 +132,14 @@ using wygrzebforum.Models;
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);
+
+        nav.NavigateTo("login", false);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager nav { get; set; }
     }
 }
 #pragma warning restore 1591

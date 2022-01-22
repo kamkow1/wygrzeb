@@ -4,6 +4,7 @@
 
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject WygrzebSessionData wygrzebSessionData
+@inject NavigationManager nav
 
 @page "/create"
 
@@ -85,5 +86,7 @@ else
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);
+
+        nav.NavigateTo("browse", false);
     }
 }

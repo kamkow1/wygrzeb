@@ -129,7 +129,8 @@ using wygrzebforum.Models;
     protected override async Task OnInitializedAsync()
     {
         // fetch json user data from api
-        Session Utemp = await sessionStorage.GetItemAsync<Session>("SessionState");
+        Session Utemp = new();
+        Utemp = await sessionStorage.GetItemAsync<Session>("SessionState");
         userIdFromSession = Utemp.CurrentUserId; 
         var Uurl = "https://localhost:44392/user/getbyid";
         object idToSubmit = new 

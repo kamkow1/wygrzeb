@@ -1,0 +1,89 @@
+﻿@using Newtonsoft.Json
+@using System.Text
+@using wygrzebforum.Models
+
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject WygrzebSessionData wygrzebSessionData
+
+@page "/create"
+
+@if (wygrzebSessionData.IsUserLoggedIn)
+{
+    <div class="create-form">
+        <EditForm Model="articleModel" OnValidSubmit="@ValidOnSubmit">
+            <DataAnnotationsValidator />
+
+            <div class="form-input-block">
+                <div class="form-group">
+                    <label for="title">Tytuł</label>
+
+                    <div class="msg-invalid">
+                        <ValidationMessage For="@(() => articleModel.title)"  />
+                    </div>
+
+                    <InputText @bind-Value="articleModel.title" 
+                        class="form-control form-input" 
+                        placeholder="nadaj tytuł" id="title" />
+                </div>
+                <div class="form-group">
+                    <label for="thumbnail">Miniaturka</label>
+
+                    <div class="msg-invalid">
+                        <ValidationMessage For="@(() => articleModel.thumbail)"  />
+                    </div>
+
+                    <InputText @bind-Value="articleModel.thumbail" 
+                        class="form-control form-input" 
+                        placeholder="link do miniaturki" id="thumbnail" />
+                </div>
+                <div class="form-group">
+                    <label for="thumbnail">Treść</label>
+
+                    <div class="msg-invalid">
+                        <ValidationMessage For="@(() => articleModel.content)"  />
+                    </div>
+
+                    <InputTextArea @bind-Value="articleModel.content" 
+                        class="form-control form-input md-textarea" 
+                        placeholder="napisz treść artykułu" 
+                        id="thumbnail" 
+                        style="resize: none;" rows="8"></InputTextArea>
+                </div>
+                <div class="form-group" style="display: inline-block; margin-top: 2em;">
+                    <input type="submit" value="prześlij" class="btn btn-outline-dark" style="margin-right: 1em;" />
+                    <input type="reset" value="wyczyść" class="btn btn-outline-danger" />
+                </div>
+            </div>
+        </EditForm>
+    </div>
+}
+else
+{
+    <p class="text-center text-danger">aby utowrzyć artykuł, musisz być zalogowany!</p>
+}
+
+@code {
+    Article articleModel = new();
+
+    async void ValidOnSubmit(EditContext editContext)
+    {
+        object articleToSubmit = new 
+        {
+            title = articleModel.title,
+            content = articleModel.content,
+            thumbail = articleModel.thumbail,
+            userId = wygrzebSessionData.CurrentUserId
+        };
+
+        //Console.WriteLine(articleToSubmit);
+
+        var json = JsonConvert.SerializeObject(articleToSubmit);
+        var data = new StringContent(json, Encoding.UTF8, "application/json");
+        //Console.WriteLine(data);
+
+        var url = "https://localhost:44392/article/create";
+        using var client = new HttpClient();
+
+        var response = await client.PostAsync(url, data);
+    }
+}

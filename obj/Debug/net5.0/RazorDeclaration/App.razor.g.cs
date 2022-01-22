@@ -94,8 +94,12 @@ using wygrzebforum.Shared;
        
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("app OnInitializedAsync");
         session.IsUserLoggedIn = false;
         await sessionStorage.SetItemAsync("SessionState", session);
+
+        //Console.WriteLine(sessionStorage);
+        //Console.WriteLine(session.IsUserLoggedIn);
     }
 
     public async void Clear()

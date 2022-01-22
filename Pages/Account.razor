@@ -4,11 +4,13 @@
 @using wygrzebforum.Models
 
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
-@inject Session session
+@inject WygrzebSessionData wygrzebSessionData
 
 @page "/account"
 
-<div class="text-center">
+@if (wygrzebSessionData.IsUserLoggedIn)
+{
+    <div class="text-center">
     <h3>Dane użytkownika</h3>
 
     <table class="table thead-dark table-striped border-primary rounded">
@@ -89,31 +91,41 @@
         </ul>
     </div>
 </div>
+}
+else
+{
+    <p class="text-center">aby wyświetlić zawartość, należy się zalogować</p>
+}
 
 @code {
-    int userIdFromSession;
+    //int userIdFromSession;
     HttpResponseMessage response = new();
     User user = new();
     List<Article> articles = new();
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("account OnInitializedAsync");
+
         // fetch json user data from api
-        Session Utemp = await sessionStorage.GetItemAsync<Session>("SessionState");
-        userIdFromSession = Utemp.CurrentUserId; 
-        var Uurl = "https://localhost:44392/user/getbyid";
+        WygrzebSessionData wsd = await sessionStorage.GetItemAsync<WygrzebSessionData>("SessionState");
+        Console.WriteLine(wsd.Dump());
+
+        using var client = new HttpClient();
+
         object idToSubmit = new 
         {
-            id = userIdFromSession
+            id = wsd.CurrentUserId
         };
+
+        var Uurl = "https://localhost:44392/user/getbyid";
         var Ujson = JsonConvert.SerializeObject(idToSubmit);
-        var Udata = new StringContent(Ujson, Encoding.UTF8, "application/json");
-        using var client = new HttpClient();
+        var Udata = new StringContent(Ujson, Encoding.UTF8, "application/json");      
         response = await client.PostAsync(Uurl, Udata);
-        user = response.Content.ReadAsAsync<User>().Result;
-        await sessionStorage.SetItemAsync<User>("SessionState", user);
+        this.user = response.Content.ReadAsAsync<User>().Result;
 
         // fetch json array of articles for current user
+        Console.WriteLine("id to submit =" + idToSubmit);
         var url = "https://localhost:44392/user/articles";
         var json = JsonConvert.SerializeObject(idToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");

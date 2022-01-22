@@ -16,7 +16,7 @@ namespace wygrzebforum
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddBlazoredSessionStorage();
-            builder.Services.AddScoped<Session>();
+            builder.Services.AddScoped<WygrzebSessionData>();
             builder.Services.AddLogging();
         
             await builder.Build().RunAsync();

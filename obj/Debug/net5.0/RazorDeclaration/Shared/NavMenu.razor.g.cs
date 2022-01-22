@@ -90,7 +90,7 @@ using wygrzebforum.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "C:\Users\kamil\source\repos\wygrzebforum\Shared\NavMenu.razor"
+#line 60 "C:\Users\kamil\source\repos\wygrzebforum\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

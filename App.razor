@@ -1,5 +1,5 @@
 ﻿@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
-@inject Session session
+@inject WygrzebSessionData wygrzebSessionData
 
 <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
     <Found Context="routeData">
@@ -21,8 +21,12 @@
 @code {
     protected override async Task OnInitializedAsync()
     {
-        session.IsUserLoggedIn = false;
-        await sessionStorage.SetItemAsync("SessionState", session);
+        Console.WriteLine("app OnInitializedAsync");
+        wygrzebSessionData.IsUserLoggedIn = false;
+        await sessionStorage.SetItemAsync("SessionState", wygrzebSessionData);
+
+        //Console.WriteLine(sessionStorage);
+        //Console.WriteLine(session.IsUserLoggedIn);
     }
 
     public async void Clear()

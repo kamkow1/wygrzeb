@@ -3,11 +3,14 @@
 @using wygrzebforum.Models
 
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
-@inject Session session
+@inject WygrzebSessionData wygrzebSessionData
+@inject NavigationManager nav
 
 @page "/login"
 
-<div class="reg-form">
+@if (!wygrzebSessionData.IsUserLoggedIn)
+{
+    <div class="reg-form">
     <EditForm Model="@userModel" OnSubmit="@ValidOnSubmit">
         <DataAnnotationsValidator />
 
@@ -19,7 +22,9 @@
                     <ValidationMessage For="@(() => userModel.Login)"  />
                 </div>
 
-                <InputText @bind-Value="userModel.Login" class="form-control form-input" placeholder="wpisz login" id="login" />
+                <InputText @bind-Value="userModel.Login" 
+                    class="form-control form-input" 
+                    placeholder="wpisz login" id="login" />
             </div>
             <div class="form-group">
                 <label for="password">Hasło</label>
@@ -28,10 +33,14 @@
                     <ValidationMessage For="@(() => userModel.Password)" />
                 </div>
 
-                <InputText type="password" @bind-Value="userModel.Password" class="form-control form-input" placeholder="wpisz hasło" id="password" />
+                <InputText type="password" @bind-Value="userModel.Password" 
+                    class="form-control form-input" 
+                    placeholder="wpisz hasło" id="password" />
             </div>
             <div class="form-group" style="display: inline-block; margin-top: 2em;">
-                <button type="submit" class="btn btn-outline-dark" style="margin-right: 1em;">zaloguj</button>
+                <button type="submit" 
+                    class="btn btn-outline-dark" 
+                    style="margin-right: 1em;">zaloguj</button>
             </div>
         </div>
         
@@ -41,6 +50,17 @@
         }
     </EditForm>
 </div>
+}
+else 
+{
+    <div class="text-center">
+        <h3>już jesteś zalogowany!</h3>
+        <p>
+            Teraz w pasku nawigacji możesz <a @onclick="NavToAccount" style="color: dodgerblue; text-decoration: underline;">wyświetlić swoje konto</a>, <br />
+            możesz <a @onclick="NavToBrowse" style="color: dodgerblue; text-decoration: underline;">przeglądać dostępne artykuły</a> lub <a @onclick="NavToCreate" style="color: dodgerblue; text-decoration: underline;">stworzyć własny</a>
+        </p>
+    </div>
+}
 
 @code {
     User userModel = new();
@@ -66,11 +86,14 @@
 
         if (response.IsSuccessStatusCode)
         {
-            session.IsUserLoggedIn = true;
-            session.CurrentUserId = result.id;
-            session.RemoteIpAdress = result.ip;
-            await sessionStorage.SetItemAsync("SessionState", session);
-            Console.WriteLine(await sessionStorage.GetItemAsync<object>("SessionState"));
+            wygrzebSessionData.IsUserLoggedIn = true;
+            wygrzebSessionData.CurrentUserId = result.id;
+            wygrzebSessionData.RemoteIpAdress = result.ip;
+            await sessionStorage.SetItemAsync("SessionState", wygrzebSessionData);
+
+            Console.WriteLine(wygrzebSessionData.Dump());
+
+            nav.NavigateTo("/", false);
         }
     }
 
@@ -78,5 +101,22 @@
     {
         public int id { get; set; }
         public string ip { get; set; }
+    }
+}
+
+@functions {
+    void NavToAccount()
+    {
+        nav.NavigateTo("account", false);
+    }
+
+    void NavToBrowse()
+    {
+        nav.NavigateTo("browse", false);
+    }
+
+    void NavToCreate()
+    {
+        nav.NavigateTo("create", false);
     }
 }

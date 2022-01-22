@@ -5,14 +5,32 @@
 @using System.Text
 @using wygrzebforum.Models
 
+@inject WygrzebSessionData wygrzebSessionData
+
 @page "/browse"
 
-<div>
-    <SearchBar />
+@if (wygrzebSessionData.IsUserLoggedIn)
+{
+<div class="search-form">
+    <EditForm Model="searchModel" OnValidSubmit="@ValidOnSubmit">
+        <div class="input-group rounded">
+              <InputText class="form-control rounded" placeholder="wyszukaj frazę..." style="width: 40em;" @bind-Value="searchModel.query" />
+              <span class="input-group-text border-0" id="search-addon">
+                <button type="submit" style="margin: 0; padding: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+              </span>
+            </div>
+    </EditForm>
 </div>
+<div style="padding-bottom: 5em;"></div>
 
 <div class="article-results">
-    <ul style="list-style-type: none;">
+    @if (this.articles.Count != 0)
+    {
+        <ul style="list-style-type: none;">
         @for (int i = 0; i < this.articles.Count; i++)
         {
             Article a = this.articles[i];
@@ -60,13 +78,22 @@
             </li>
         }
     </ul>
+    }
+    else 
+    {
+        <p class="text-center">brak danych do wyświetlenia... <br /> spróbuj wyszukać inną fazę!</p>
+    }
 </div>
+}
+else 
+{
+    <p class="text-center text-danger">aby wyszukiwać artykuły, musisz być zalogowany!</p>
+}
 
 @code {
     List<Article> articles = new();
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
+    Search searchModel = new();
+    HttpResponseMessage response = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -95,6 +122,8 @@
                                     "application/json");
 
         await client.SendAsync(request);
+
+        StateHasChanged();
     }
 
     async void Downvote(int articleid)
@@ -113,5 +142,33 @@
                                     "application/json");
 
         await client.SendAsync(request);
+
+        StateHasChanged();
+    }
+
+    async void ValidOnSubmit()
+    {
+        if (searchModel.query.Trim().Length != 0)
+        {
+            object searchToSubmit = new 
+        {
+            query = searchModel.query,
+            userId = wygrzebSessionData.CurrentUserId
+        };
+
+        Console.WriteLine(searchToSubmit);
+        
+        var json = JsonConvert.SerializeObject(searchToSubmit);
+        var data = new StringContent(json, Encoding.UTF8, "application/json");
+        Console.WriteLine(await data.ReadAsStringAsync());
+        
+        var url = "https://localhost:44392/search/new";
+        using var client = new HttpClient();
+
+        response = await client.PostAsync(url, data);
+        Console.WriteLine("RESPONSE!!!" + await response.Content.ReadAsStringAsync());
+        this.articles = JsonConvert.DeserializeObject<List<Article>>(await response.Content.ReadAsStringAsync());
+        StateHasChanged();
+        }
     }
 }

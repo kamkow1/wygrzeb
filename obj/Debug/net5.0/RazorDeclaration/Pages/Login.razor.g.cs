@@ -112,7 +112,7 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+#line 59 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
        
     User userModel = new();
     HttpResponseMessage response = new();
@@ -141,7 +141,8 @@ using wygrzebforum.Models;
             session.CurrentUserId = result.id;
             session.RemoteIpAdress = result.ip;
             await sessionStorage.SetItemAsync("SessionState", session);
-            Console.WriteLine(await sessionStorage.GetItemAsync<object>("SessionState"));
+            //Console.WriteLine(await sessionStorage.GetItemAsync<object>("SessionState"));
+            nav.NavigateTo("/", false);
         }
     }
 
@@ -154,6 +155,28 @@ using wygrzebforum.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 99 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Login.razor"
+            
+    void NavToAccount()
+    {
+        nav.NavigateTo("account", false);
+    }
+
+    void NavToBrowse()
+    {
+        nav.NavigateTo("browse", false);
+    }
+
+    void NavToCreate()
+    {
+        nav.NavigateTo("create", false);
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager nav { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Session session { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
     }

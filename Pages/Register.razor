@@ -76,7 +76,7 @@
         var json = JsonConvert.SerializeObject(userToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var url = "https://localhost:44392/user/register";
+        var url = "https://wygrzebapi.azurewebsites.net/user/register";
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);

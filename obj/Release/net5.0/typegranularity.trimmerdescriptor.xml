@@ -1,0 +1,92 @@
+<linker>
+  <assembly fullname="Microsoft.AspNetCore.Authentication.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Authentication.Core">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Authorization">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Components.Forms">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Components.Web">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Components.WebAssembly">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Components">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Connections.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Diagnostics.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Diagnostics">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.HostFiltering">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Hosting.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Hosting.Server.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Hosting">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Http.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Http.Extensions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Http.Features">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Http">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.HttpOverrides">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Metadata">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Routing.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Routing">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.IIS">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.IISIntegration">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.Kestrel.Core">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.Kestrel.Https">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.Server.Kestrel">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+  <assembly fullname="Microsoft.AspNetCore.WebUtilities">
+    <type fullname="*" required="false" preserve="all" />
+  </assembly>
+</linker>

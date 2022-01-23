@@ -53,7 +53,6 @@
                                 <th>
                                     <p>@a.title</p>
                                     <i style="font-size: 0.7em">data utworzenia: @a.creationDate</i> <br />
-                                    <i style="font-size: 0.7em">liczba wyświetleń: @a.viewCount</i>
                                 </th>
                                 <th class="up-down-group">
                                     <div class="btn-down">
@@ -118,7 +117,7 @@ else
             id = wsd.CurrentUserId
         };
 
-        var Uurl = "https://localhost:44392/user/getbyid";
+        var Uurl = "https://wygrzebapi.azurewebsites.net/user/getbyid";
         var Ujson = JsonConvert.SerializeObject(idToSubmit);
         var Udata = new StringContent(Ujson, Encoding.UTF8, "application/json");      
         response = await client.PostAsync(Uurl, Udata);
@@ -126,7 +125,7 @@ else
 
         // fetch json array of articles for current user
         Console.WriteLine("id to submit =" + idToSubmit);
-        var url = "https://localhost:44392/user/articles";
+        var url = "https://wygrzebapi.azurewebsites.net/user/articles";
         var json = JsonConvert.SerializeObject(idToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
         response = await client.PostAsync(url, data);
@@ -137,7 +136,7 @@ else
 
     async void Upvote(int articleid)
     {
-        var url = "https://localhost:44392/article/upvote";
+        var url = "https://wygrzebapi.azurewebsites.net/article/upvote";
 
         string data = JsonConvert.SerializeObject(new { id = articleid });
 
@@ -157,7 +156,7 @@ else
 
     async void Downvote(int articleid)
     {
-        var url = "https://localhost:44392/article/downvote";
+        var url = "https://wygrzebapi.azurewebsites.net/article/downvote";
 
         string data = JsonConvert.SerializeObject(new { id = articleid });
 

@@ -132,7 +132,7 @@ using wygrzebforum.Models;
         var data = new StringContent(json, Encoding.UTF8, "application/json");
         //Console.WriteLine(data);
 
-        var url = "https://localhost:44392/article/create";
+        var url = "https://wygrzebapi.azurewebsites.net/article/create";
         using var client = new HttpClient();
 
         var response = await client.PostAsync(url, data);

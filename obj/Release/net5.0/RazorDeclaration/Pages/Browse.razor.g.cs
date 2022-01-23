@@ -133,7 +133,7 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 93 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 92 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
        
     List<Article> articles = new();
     Search searchModel = new();
@@ -141,7 +141,7 @@ using wygrzebforum.Models;
 
     protected override async Task OnInitializedAsync()
     {
-        var url = "https://localhost:44392/article/recent";
+        var url = "https://wygrzebapi.azurewebsites.net/article/recent";
         var httpClient = new HttpClient();
         var content = await httpClient.GetStringAsync(url);
         var temp = await Task.Run(() => JArray.Parse(content));
@@ -152,11 +152,11 @@ using wygrzebforum.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 108 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
+#line 107 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Browse.razor"
             
     async void Upvote(int articleid)
     {
-        var url = "https://localhost:44392/article/upvote";
+        var url = "https://wygrzebapi.azurewebsites.net/article/upvote";
 
         string data = JsonConvert.SerializeObject(new { id = articleid });
 
@@ -176,7 +176,7 @@ using wygrzebforum.Models;
 
     async void Downvote(int articleid)
     {
-        var url = "https://localhost:44392/article/downvote";
+        var url = "https://wygrzebapi.azurewebsites.net/article/downvote";
 
         string data = JsonConvert.SerializeObject(new { id = articleid });
 
@@ -210,7 +210,7 @@ using wygrzebforum.Models;
         var data = new StringContent(json, Encoding.UTF8, "application/json");
         Console.WriteLine(await data.ReadAsStringAsync());
         
-        var url = "https://localhost:44392/search/new";
+        var url = "https://wygrzebapi.azurewebsites.net/search/new";
         using var client = new HttpClient();
 
         response = await client.PostAsync(url, data);

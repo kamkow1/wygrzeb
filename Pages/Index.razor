@@ -1,7 +1,45 @@
 ﻿@page "/"
 
-<div class="text-center">
+<div class="container">
     <div class="page-header">
-        <h2 class="toast-header">Witaj na wygrzebie!</h2>
+        <h2>Witaj na wygrzebie!</h2>
+    </div>
+    <div>
+        <div>
+            <h4>Czym jest wygrzeb?</h4>
+            <p>
+                Wygrzeb to projekt (forum) stworzony w językach C#, HTML i Javascript <br /> 
+                autorstwa Kamila Kowalczyka, ucznia technikum im. Marcina Kasprzaka. <br />
+                Wykorzystane technologie:
+                <ol>
+                    <li>
+                        Back-end
+                        <ul>
+                            <li>ASP.NET Core (platforma dla aplikacji webowych)</li>
+                            <li>PostgreSQL (relacyjna baza danych)</li>
+                            <li>Entity Framework Core (ORM)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Front-end
+                        <ul>
+                            <li>Blazor WebAssembly</li>
+                            <li>Razor Pages</li>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+        </div>
+        <div>
+            <h4>Jak korzystać z aplikacji?</h4>
+            <p>
+                Aby zacząć swoją przygodę z wygrzebem, należy się <a href="/register">zarejestrować</a>. <br />
+                Po przejściu procesu rejestracji upewnij się, że twoje konto zostało utworzone. Możesz to sprawdzić, otwierając skrzynkę pocztową. <br />
+                Na podany adres e-mail powinna przyjść wiadomość powitalna z wygrzebu. <br />
+                <br />
+                Teraz jesteś gotów, aby się <a href="/login">zalogować</a> i doświadczyć pełni aplikacji! <br />
+                Po zalogowaniu możesz <a href="/account">wyświetlić swoje konto</a>, <a href="/create">stworzyć swój artykuł</a> lub <a href="/browse">przeglądać istniejące artykuły</a>.
+            </p>
+        </div>
     </div>
 </div>

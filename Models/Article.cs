@@ -21,7 +21,6 @@ namespace wygrzebforum.Models
         public string thumbail { get; set; }
         public int upvotes { get; set; }
         public int downvotes { get; set; }
-        public int viewCount { get; set; }
         public int userId { get; set; }
     }
 }

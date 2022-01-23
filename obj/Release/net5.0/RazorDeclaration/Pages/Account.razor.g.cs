@@ -119,7 +119,7 @@ using wygrzebforum.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 100 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
+#line 99 "C:\Users\kamil\source\repos\wygrzebforum\Pages\Account.razor"
        
     //int userIdFromSession;
     HttpResponseMessage response = new();
@@ -141,7 +141,7 @@ using wygrzebforum.Models;
             id = wsd.CurrentUserId
         };
 
-        var Uurl = "https://localhost:44392/user/getbyid";
+        var Uurl = "https://wygrzebapi.azurewebsites.net/user/getbyid";
         var Ujson = JsonConvert.SerializeObject(idToSubmit);
         var Udata = new StringContent(Ujson, Encoding.UTF8, "application/json");      
         response = await client.PostAsync(Uurl, Udata);
@@ -149,7 +149,7 @@ using wygrzebforum.Models;
 
         // fetch json array of articles for current user
         Console.WriteLine("id to submit =" + idToSubmit);
-        var url = "https://localhost:44392/user/articles";
+        var url = "https://wygrzebapi.azurewebsites.net/user/articles";
         var json = JsonConvert.SerializeObject(idToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
         response = await client.PostAsync(url, data);
@@ -160,7 +160,7 @@ using wygrzebforum.Models;
 
     async void Upvote(int articleid)
     {
-        var url = "https://localhost:44392/article/upvote";
+        var url = "https://wygrzebapi.azurewebsites.net/article/upvote";
 
         string data = JsonConvert.SerializeObject(new { id = articleid });
 
@@ -180,7 +180,7 @@ using wygrzebforum.Models;
 
     async void Downvote(int articleid)
     {
-        var url = "https://localhost:44392/article/downvote";
+        var url = "https://wygrzebapi.azurewebsites.net/article/downvote";
 
         string data = JsonConvert.SerializeObject(new { id = articleid });
 

@@ -128,7 +128,7 @@ using wygrzebforum.Models;
         var json = JsonConvert.SerializeObject(userToSubmit);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var url = "https://localhost:44392/user/login";
+        var url = "https://wygrzebapi.azurewebsites.net/user/login";
         using var client = new HttpClient();
 
         response = await client.PostAsync(url, data);
